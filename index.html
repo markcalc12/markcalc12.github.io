@@ -139,6 +139,30 @@
                 document.getElementById('Forth2').value = "";
                 document.getElementById('ForthPercentage').value = "";
             }
+            function clearmarks() {
+                var exam1result = "";
+                var exam2result = "";
+                var exam3result = "";
+                var exam4result = "";
+                document.getElementById('First').value = "";
+                document.getElementById('First1').value = "";
+                document.getElementById('First2').value = "";
+                document.getElementById('Second').value = "";
+                document.getElementById('Second1').value = "";
+                document.getElementById('Second2').value = "";
+                document.getElementById('Third').value = "";
+                document.getElementById('Third1').value = "";
+                document.getElementById('Third2').value = "";
+                document.getElementById('Forth').value = "";
+                document.getElementById('Forth1').value = "";
+                document.getElementById('Forth2').value = "";
+            }
+            function clearpercentage() {
+                document.getElementById('FirstPercentage').value = "";
+                document.getElementById('SecondPercentage').value = "";
+                document.getElementById('ThirdPercentage').value = "";
+                document.getElementById('ForthPercentage').value = "";
+            }
         </script>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     </head>
@@ -212,6 +236,8 @@
         <br>
         <button onclick="calculatemarks()">Calculate marks</button>
         <button onclick="clearall()">Clear all</button>
+        <button onclick="clearmarks()">Clear marks</button>
+        <button onclick="clearpercentage()">Clear weightage</button>
         <br>
         <fieldset>
             <legend><h1 style="font-family: 'Roboto', sans-serif;">Results:</h1></legend>
