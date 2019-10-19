@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .left {
+                width: 40%;
+                /* height: 40%; */
+                display: inline-block;
+                padding: 10px;
+                text-align: center;
+            }
+            legend {
+                font-family: 'Roboto', sans-serif;
+            }
+            p {
+                font-family: 'Roboto', sans-serif;
+                margin: 5px;
+            }
+            body {
+                text-align: center;
+            }
+            fieldset {
+                max-width: 500px;
+                margin: auto;
+            }
+            .secondtextbox {
+                width: 30%;
+            }
+            input {
+                margin: 5px;
+                max-width: 40%;
+            }
+            .footer {
+                /* position: fixed; */
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: grey;
+                color: white;
+                text-align: center;
+                margin: 0px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        </style>
+        <script>
+            var exam1result = "";
+            var exam2result = "";
+            var exam3result = "";
+            var exam4result = "";
 
+            function calculatemarks() {
+                if (Number(document.getElementById('First').value) == "" && Number(document.getElementById('First1').value) != "" && Number(document.getElementById('First2').value) != "") {
+                    document.getElementById("Exam1").innerHTML = "First exam: ".concat(Number(document.getElementById('First1').value) / Number(document.getElementById('First2').value) * 100);
+                    exam1result = Number(document.getElementById('First1').value) / Number(document.getElementById('First2').value) * 100;
+                } else if (Number(document.getElementById('First').value) != "" && Number(document.getElementById('First1').value) == "" && Number(document.getElementById('First2').value) == "") {
+                    if (Number(document.getElementById('First').value > 1)) {
+                        document.getElementById("Exam1").innerHTML = "First exam: ".concat(Number(document.getElementById('First').value));
+                        exam1result = Number(document.getElementById('First').value);
+                    } else if (Number(document.getElementById('First').value <= 1)) {
+                        document.getElementById("Exam1").innerHTML = "First exam: ".concat(Number(document.getElementById('First').value) * 100);
+                        exam1result = Number(document.getElementById('First').value) * 100;
+                    }
+                } else {
+                    alert("Error. Please check marks for first exam.");
+                }
+                if (Number(document.getElementById('Second').value) == "" && Number(document.getElementById('Second1').value) != "" && Number(document.getElementById('Second2').value) != "") {
+                    document.getElementById("Exam2").innerHTML = "Second exam: ".concat(Number(document.getElementById('Second1').value) / Number(document.getElementById('Second2').value) * 100);
+                    exam2result = Number(document.getElementById('Second1').value) / Number(document.getElementById('Second2').value) * 100;
+                } else if (Number(document.getElementById('Second').value) != "" && Number(document.getElementById('Second1').value) == "" && Number(document.getElementById('Second2').value) == "") {
+                    if (Number(document.getElementById('Second').value > 1)) {
+                        document.getElementById("Exam2").innerHTML = "Second exam: ".concat(Number(document.getElementById('Second').value));
+                        exam2result = Number(document.getElementById('Second').value);
+                    } else if (Number(document.getElementById('Second').value <= 1)) {
+                        document.getElementById("Exam2").innerHTML = "Second exam: ".concat(Number(document.getElementById('Second').value) * 100);
+                        exam2result = Number(document.getElementById('Second').value) * 100;
+                    }
+                } else {
+                    alert("Error. Please check marks for second exam.");
+                }
+                if (exam1result != "" && exam2result != "" && document.getElementById('FirstPercentage').value != "" && document.getElementById('SecondPercentage').value != "") {
+                    document.getElementById("FC").innerHTML = "First combined: ".concat(((exam1result * Number(document.getElementById('FirstPercentage').value)) + (exam2result * Number(document.getElementById('SecondPercentage').value))) / (Number(document.getElementById('FirstPercentage').value) + Number(document.getElementById('SecondPercentage').value)))
+                }
+                if (Number(document.getElementById('Third').value) == "" && Number(document.getElementById('Third1').value) != "" && Number(document.getElementById('Third2').value) != "") {
+                    document.getElementById("Exam3").innerHTML = "Third exam: ".concat(Number(document.getElementById('Third1').value) / Number(document.getElementById('Third2').value) * 100);
+                    exam3result = Number(document.getElementById('Third1').value) / Number(document.getElementById('Third2').value) * 100;
+                } else if (Number(document.getElementById('Third').value) != "" && Number(document.getElementById('Third1').value) == "" && Number(document.getElementById('Third2').value) == "") {
+                    if (Number(document.getElementById('Third').value > 1)) {
+                        document.getElementById("Exam3").innerHTML = "Third exam: ".concat(Number(document.getElementById('Third').value));
+                        exam3result = Number(document.getElementById('Third').value);
+                    } else if (Number(document.getElementById('Third').value <= 1)) {
+                        document.getElementById("Exam3").innerHTML = "Third exam: ".concat(Number(document.getElementById('Third').value) * 100);
+                        exam3result = Number(document.getElementById('Third').value) * 100;
+                    }
+                } else {
+                    alert("Error. Please check marks for third exam.");
+                }
+                if (Number(document.getElementById('Forth').value) == "" && Number(document.getElementById('Forth1').value) != "" && Number(document.getElementById('Forth2').value) != "") {
+                    document.getElementById("Exam4").innerHTML = "Forth exam: ".concat(Number(document.getElementById('Forth1').value) / Number(document.getElementById('Forth2').value) * 100);
+                    exam4result = Number(document.getElementById('Forth1').value) / Number(document.getElementById('Forth2').value) * 100;
+                } else if (Number(document.getElementById('Forth').value) != "" && Number(document.getElementById('Forth1').value) == "" && Number(document.getElementById('Forth2').value) == "") {
+                    if (Number(document.getElementById('Forth').value > 1)) {
+                        document.getElementById("Exam4").innerHTML = "Forth exam: ".concat(Number(document.getElementById('Forth').value));
+                        exam4result = Number(document.getElementById('Forth').value);
+                    } else if (Number(document.getElementById('Forth').value <= 1)) {
+                        document.getElementById("Exam4").innerHTML = "Forth exam: ".concat(Number(document.getElementById('Forth').value) * 100);
+                        exam4result = Number(document.getElementById('Forth').value) * 100;
+                    }
+                } else {
+                    alert("Error. Please check marks for forth exam.");
+                }
+                if (exam3result != "" && exam4result != "" && document.getElementById('ThirdPercentage').value != "" && document.getElementById('ForthPercentage').value != "") {
+                    document.getElementById("SC").innerHTML = "Second combined: ".concat(((exam3result * Number(document.getElementById('ThirdPercentage').value)) + (exam4result * Number(document.getElementById('ForthPercentage').value))) / (Number(document.getElementById('ThirdPercentage').value) + Number(document.getElementById('ForthPercentage').value)))
+                }
+                if (exam1result != "" && exam2result != "" && exam3result != "" && exam4result != "" && document.getElementById('FirstPercentage').value != "" && document.getElementById('SecondPercentage').value != "" && document.getElementById('ThirdPercentage').value != "" && document.getElementById('ForthPercentage').value != "") {
+                    document.getElementById("Overall").innerHTML = "Overall: ".concat(((exam1result * Number(document.getElementById('FirstPercentage').value)) + (exam2result * Number(document.getElementById('SecondPercentage').value)) + (exam3result * Number(document.getElementById('ThirdPercentage').value)) + (exam4result * Number(document.getElementById('ForthPercentage').value))) / (Number(document.getElementById('FirstPercentage').value) + Number(document.getElementById('SecondPercentage').value) + Number(document.getElementById('ThirdPercentage').value) + Number(document.getElementById('ForthPercentage').value)))
+                }
+            }
+            function clearall() {
+                var exam1result = "";
+                var exam2result = "";
+                var exam3result = "";
+                var exam4result = "";
+                document.getElementById('First').value = "";
+                document.getElementById('First1').value = "";
+                document.getElementById('First2').value = "";
+                document.getElementById('FirstPercentage').value = "";
+                document.getElementById('Second').value = "";
+                document.getElementById('Second1').value = "";
+                document.getElementById('Second2').value = "";
+                document.getElementById('SecondPercentage').value = "";
+                document.getElementById('Third').value = "";
+                document.getElementById('Third1').value = "";
+                document.getElementById('Third2').value = "";
+                document.getElementById('ThirdPercentage').value = "";
+                document.getElementById('Forth').value = "";
+                document.getElementById('Forth1').value = "";
+                document.getElementById('Forth2').value = "";
+                document.getElementById('ForthPercentage').value = "";
+            }
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1 style="font-family: 'Roboto', sans-serif;">Mark calculator</h1>
+        <form>
+            <fieldset>
+                <legend>First exam</legend>
+                <div class="left" style="background-color: #FFDC00;">
+                    <p>Marks:</p>
+                    <input type="text" id="First" value="">
+                    <p>or</p>
+                    <input type="text" id="First1" value="22.5" class="secondtextbox">
+                    <p style="display: inline-block;">/</p>
+                    <input type="text" id="First2" value="30" class="secondtextbox">
+                </div>
+                <div class="left" style="background-color: #FFDC00;">
+                    <p>Weightage (in %):</p>
+                    <input type="text" id="FirstPercentage" value="10">
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Second exam</legend>
+                <div class="left" style="background-color: #01FF70;">
+                    <p>Marks:</p>
+                    <input type="text" id="Second" value="0.75">
+                    <p>or</p>
+                    <input type="text" id="Second1" value="" class="secondtextbox">
+                    <p style="display: inline-block;">/</p>
+                    <input type="text" id="Second2" value="" class="secondtextbox">
+                </div>
+                <div class="left" style="background-color: #01FF70;">
+                    <p>Weightage (in %):</p>
+                    <input type="text" id="SecondPercentage" value="15">
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Third exam</legend>
+                <div class="left" style="background-color: #7FDBFF;">
+                    <p>Marks:</p>
+                    <input type="text" id="Third" value="">
+                    <p>or</p>
+                    <input type="text" id="Third1" value="27" class="secondtextbox">
+                    <p style="display: inline-block;">/</p>
+                    <input type="text" id="Third2" value="30" class="secondtextbox">
+                </div>
+                <div class="left" style="background-color: #7FDBFF;">
+                    <p>Weightage (in %):</p>
+                    <input type="text" id="ThirdPercentage" value="15">
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Forth exam</legend>
+                <div class="left" style="background-color: #DDDDDD;">
+                    <p>Marks:</p>
+                    <input type="text" id="Forth" value="0.82">
+                    <p>or</p>
+                    <input type="text" id="Forth1" value="" class="secondtextbox">
+                    <p style="display: inline-block;">/</p>
+                    <input type="text" id="Forth2" value="" class="secondtextbox">
+                </div>
+                <div class="left" style="background-color: #DDDDDD;">
+                    <p>Weightage (in %):</p>
+                    <input type="text" id="ForthPercentage" value="60">
+                </div>
+            </fieldset>
+        </form>
+        <br>
+        <button onclick="calculatemarks()">Calculate marks</button>
+        <button onclick="clearall()">Clear all</button>
+        <fieldset>
+            <legend><h1 style="font-family: 'Roboto', sans-serif;">Results:</h1></legend>
+                <p id="Exam1">First exam:</p>
+                <p id="Exam2">Second exam:</p>
+                <p id="FC">First combined:</p>
+                <br>
+                <p id="Exam3">Third exam:</p>
+                <p id="Exam4">Forth exam:</p>
+                <p id="SC">Second combined:</p>
+                <br>
+                <p id="Overall">Overall:</p>
+        </fieldset>
+        <br>
+        <p>Note: The script detects if it is more than 1 or less than or equal to 1. If results are below 1% there may be calculation errors. It is best to leave in decimal form—e.g., 0.71, for correct results.</p>
+        <div class="footer" style="margin: 0px;">
+            <p>Created on 18 October 2019</p>
+        </div>
+    </body>
+</html>
